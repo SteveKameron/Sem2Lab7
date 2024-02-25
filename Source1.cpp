@@ -1,0 +1,62 @@
+#include <iostream>
+#include <chrono>
+#include <thread>
+#include <random>
+
+void Thread_1_Working(int& n1,int* m1, int* m2)
+{
+
+	for (int i = 0; i < n1; i++)
+	{
+		std::cout << m1[i] << " * " << m2[i] << " = " << m1[i] * m2[i] << "\t thread1 " << std::endl;
+		//std::this_thread::sleep_for(std::chrono::milliseconds(200));
+	}
+}
+
+void Thread_2_Working(int& n2,int* m1, int* m2)
+{
+	for (size_t i = 0; i < n2; i++)
+	{
+		std::cout << m1[i] << " + " << m2[i] << " = " << m1[i] + m2[i] << "\t thread2 " << std::endl;
+		//std::this_thread::sleep_for(std::chrono::milliseconds(300));
+	}
+}
+
+void Thread_3_Working(int& n3)
+{
+	srand(time(NULL));
+	for (size_t i = 0; i < n3; i++)
+	{
+		std::cout << 1 + rand() % 1000 << "\t thread3" << std::endl;
+		//std::this_thread::sleep_for(std::chrono::milliseconds(400));
+	}
+}
+
+int main()
+{
+	std::string name1 = "thread1", name2 = "thread2", name3 = "thread3";
+	srand(time(NULL));
+	int First_Array[20], Second_Array[20];
+	for (int i = 0; i < 20; i++)
+	{
+		First_Array[i] = 1 + rand() % 100;
+		Second_Array[i] = 1 + rand() % 100;
+	}
+
+	int n1 = 20;
+	int n2 = 20;
+	int n3 = 20;
+
+	std::thread thread1(Thread_1_Working, std::ref(n1), std::ref(First_Array), std::ref(Second_Array));
+	thread1.join();
+	std::thread thread2(Thread_2_Working, std::ref(n2), std::ref(First_Array), std::ref(Second_Array));
+	thread2.join();
+	std::thread thread3(Thread_3_Working, std::ref(n3));
+	thread3.join();
+
+	// kak peredat' name_of_thread v potok? error : "invoke", std::ref doesn't helps
+	
+
+	std::cout << "Main thread has stopped working" << std::endl;
+	return 0;
+}
