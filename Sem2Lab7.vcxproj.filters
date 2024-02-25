@@ -15,15 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source1.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="TextFile1.txt">
+    <Text Include="future.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
-    <Text Include="future.txt">
+    <Text Include="mutexrealisation.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="FirstPart.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
   </ItemGroup>

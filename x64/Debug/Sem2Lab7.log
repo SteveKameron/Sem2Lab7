@@ -1,4 +1,4 @@
-﻿  Source1.cpp
-C:\Users\173\source\repos\Sem2Lab7\Sem2Lab7\Source1.cpp(27,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-C:\Users\173\source\repos\Sem2Lab7\Sem2Lab7\Source1.cpp(38,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+﻿  main.cpp
+C:\Users\173\source\repos\Sem2Lab7\Sem2Lab7\main.cpp(47,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\173\source\repos\Sem2Lab7\Sem2Lab7\main.cpp(62,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   Sem2Lab7.vcxproj -> C:\Users\173\source\repos\Sem2Lab7\x64\Debug\Sem2Lab7.exe
