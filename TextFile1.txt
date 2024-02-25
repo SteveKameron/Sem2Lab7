@@ -2,9 +2,8 @@
 #include <chrono>
 #include <thread>
 #include <random>
-#include <mutex>
 
-void Thread_1_Working(int& n1, int* m1, int* m2)
+void Thread_1_Working(int& n1,int* m1, int* m2)
 {
 
 	for (int i = 0; i < n1; i++)
@@ -14,7 +13,7 @@ void Thread_1_Working(int& n1, int* m1, int* m2)
 	}
 }
 
-void Thread_2_Working(int& n2, int* m1, int* m2)
+void Thread_2_Working(int& n2,int* m1, int* m2)
 {
 	for (size_t i = 0; i < n2; i++)
 	{
@@ -49,17 +48,15 @@ int main()
 	int n3 = 20;
 
 	std::thread thread1(Thread_1_Working, std::ref(n1), std::ref(First_Array), std::ref(Second_Array));
-
+	thread1.join();
 	std::thread thread2(Thread_2_Working, std::ref(n2), std::ref(First_Array), std::ref(Second_Array));
-
+	thread2.join();
 	std::thread thread3(Thread_3_Working, std::ref(n3));
-
+	thread3.join();
 
 	// kak peredat' name_of_thread v potok? error : "invoke", std::ref doesn't helps
+	
 
-	thread1.join();
-	thread2.join();
-	thread3.join();
 	std::cout << "Main thread has stopped working" << std::endl;
 	return 0;
 }
